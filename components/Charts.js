@@ -4,26 +4,13 @@ import {
     BarChart,
 } from "react-native-chart-kit";
 import colors from '../Colors';
+import api from '../api';
 
 export function LinearChart() {
     return (
         <View>
             <LineChart
-                data={{
-                    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-                    datasets: [
-                        {
-                            data: [
-                                Math.random() * 100,
-                                Math.random() * 100,
-                                Math.random() * 100,
-                                Math.random() * 100,
-                                Math.random() * 100,
-                                Math.random() * 100
-                            ]
-                        }
-                    ]
-                }}
+                data={api.chartMonthly}
                 width={Dimensions.get("window").width - 30}
                 height={220}
                 yAxisInterval={1}
@@ -42,7 +29,7 @@ export function LinearChart() {
                         translateX: -30
                     },
                     propsForDots: {
-                        r: "5",
+                        r: "7",
                         strokeWidth: "2",
                         fill: colors.secondaryColor,
                         stroke: colors.white
@@ -63,22 +50,7 @@ export function BarGraph() {
     return (
         <View>
             <BarChart
-                data={{
-                    labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-                    datasets: [
-                        {
-                            data: [
-                                Math.random() * 100,
-                                Math.random() * 100,
-                                Math.random() * 100,
-                                Math.random() * 100,
-                                Math.random() * 100,
-                                Math.random() * 100,
-                                Math.random() * 100
-                            ]
-                        }
-                    ]
-                }}
+                data={api.chartDaily}
                 width={Dimensions.get("window").width - 30}
                 height={220}
                 yAxisInterval={1}
@@ -97,7 +69,7 @@ export function BarGraph() {
                         translateX: -30
                     },
                     propsForDots: {
-                        r: "5",
+                        r: "7",
                         strokeWidth: "2",
                         fill: colors.secondaryColor,
                         stroke: colors.white
